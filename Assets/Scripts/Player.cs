@@ -17,10 +17,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         
         mHor = Input.GetAxis("Horizontal");
         mVer = Input.GetAxis("Vertical");
         moveDirection.x = mHor;
         moveDirection.y = mVer;
         transform.position += moveDirection * Time.deltaTime * speed;
+        
     }
 }
