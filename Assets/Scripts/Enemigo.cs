@@ -10,6 +10,10 @@ public class Enemigo : MonoBehaviour
 
     public void disminuirSalud() {
         salud--;
+        if(salud == 0) {
+            Destroy(gameObject);
+        }
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -22,5 +26,13 @@ public class Enemigo : MonoBehaviour
     {
         Vector2 movimiento = player.position - transform.position; 
         transform.position += (Vector3) movimiento.normalized * Time.deltaTime * velocidad;
+    }
+
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       if(collision.CompareTag("Player")){
+            collision.GetComponent<Player>().disminuirSalud(); 
+       }    
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] int salud = 10 ;
     float mHor;
     float mVer;
     bool cargado=true; 
@@ -47,6 +48,14 @@ public class Player : MonoBehaviour
     IEnumerator Recargar() {
         yield return new WaitForSeconds(1/cadencia);
         cargado = true; 
+    }
+
+    public void disminuirSalud() {
+        salud--;
+        if(salud == 0) {
+            Destroy(gameObject);
+        }
+        
     }
 
 }

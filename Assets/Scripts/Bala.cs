@@ -18,7 +18,10 @@ public class Bala : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<Enemigo>().disminuirSalud(); 
-        Destroy(gameObject);
+        if(collision.CompareTag("Enemigo")){
+            collision.GetComponent<Enemigo>().disminuirSalud(); 
+            Destroy(gameObject);
+        }
+        
     }
 }
