@@ -14,7 +14,17 @@ public class Player : MonoBehaviour
     [SerializeField] Transform mira; 
     [SerializeField] Transform bala; 
     [SerializeField] float cadencia = 1; 
+    [SerializeField] int salud =10 ; 
     // Start is called before the first frame update
+
+    public void disminuirSalud(){
+        salud --; 
+        if(salud<=0){
+            // Gameover 
+            print("Se termino");
+        }
+    }
+
     void Start()
     {
         
