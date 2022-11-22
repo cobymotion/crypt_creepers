@@ -19,6 +19,9 @@ public class Enemigo : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>().transform; 
+        GameObject[] puntos = GameObject.FindGameObjectsWithTag("PuntoAparicion");
+        int index = Random.Range(0, puntos.Length); 
+        gameObject.transform.position = puntos[index].transform.position;
     }
 
     // Update is called once per frame
